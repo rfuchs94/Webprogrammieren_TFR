@@ -1,0 +1,45 @@
+{% include "header.html" %}
+<body>
+  <!-- Ausgabe der Einträge in alle_eingaben unter der Bedingung, dass der Status offen ist
+    Quelle Tabelle: https://getbootstrap.com/docs/4.4/content/tables/-->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="offset-lg-1 col-lg-10 col-lg-1 order-lg-1 my-auto showcase-text">
+      <h2 class="text-center">Resultate für Hilfe</h2>
+      <table class="table table-hover table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Vorname</th>
+          <th scope="col">Name</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">PLZ</th>
+          <th scope="col">Ort</th>
+          <th scope="col">Eintrag</th>
+           <th scope="col">Frist</th>
+          
+          <th width="100" scope="col"> Auswahl </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ergebnis in suchergebnis: %}
+        <tr>
+          <th>{{ ergebnis["Vorname"] }}</th>
+          <th>{{ ergebnis["Name"] }}</th>
+          <th>{{ ergebnis["Adresse"] }}</th>
+          <th>{{ ergebnis["PLZ"] }}</th>
+          <th>{{ ergebnis["Ort"] }}</th>
+          <th>{{ ergebnis["Eintrag"] }}</th>
+          <th>{{ ergebnis["Frist"]|safe }}</th>
+         <!-- id wird beim ergebnis mitgegeben bei der url (dynamisch) siehe python def erledigt --> 
+           <th><a class="btn btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a></th>
+           <!--Alternative: <a class="btn btn-primary" href="{{url_for('erledigt', id=ergebnis['id'])}}" role="button">auswählen</a> -->
+        </tr>
+       {% endfor %}
+      </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+</body>
+{% include "footer.html" %}

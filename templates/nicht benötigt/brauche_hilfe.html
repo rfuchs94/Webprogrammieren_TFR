@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Programmieren 2</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css'">
+    <link rel="stylesheet" href="../static/bootstrap/css/landing-page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; z-index: 1; width: 100%;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="index_startseite.html">Mein Projekt</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index_startseite.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="daten.html">Benötige Hilfe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="biete_hilfe.html">Möchte helfen</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="uebersicht.html">Übersicht</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Hintergrundbild/Titel -->
+<header class="masthead text-white text-center" style="height: 524px">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 style="color:#4e6c5c "> <b> Webprogrammieren</b></h1>
+        </div>
+      </div>
+    </div>
+</header>
+</head>
+
+<body>
+  
+  <section>
+    <div class="container-fluid p-0">
+      <div class="row no-gutters ">
+
+        <div class="col-md-6 order-lg-2 text-white center-block"></div>
+        <div class="offset-md-4 col-md-4 offset-md-4 order-lg-1 my-auto showcase-text center-block text-center">
+          <!-- Text wird eingefügt zur Bestätigung nach Eingabe des Formulares 
+            Funktion aus brauche hilfe, Formatierung erfolgt in der Funktion-->
+            <!-- Email Adresse und PLZ sind Pflichtfelder, da Person sonst nicht kontaktiert werden kann oder Eintrag nicht aufgerufen wird bei biete_hilfe_resultat -->
+
+           {{titel|safe}} 
+           {{ausgabe|safe}}
+          <h2 class="text-center"></p> <br/> Gemeinsam gegen Covid-19</h2>
+          <p class="lead mb-0 text-center">
+            Sie benötigen Hilfe? Wir helfen Ihnen gerne! <br/> Bitte füllen Sie dafür folgendes Formular aus: 
+            <br />   <br/></p>
+            <form action="brauche_hilfe" method="POST">
+              <div class="form-row">
+                <div class="form-group col-md-6 text-left">
+                  <label for="vorname">Vorname</label>
+                  <input type="Text" name="vorname" class="form-control" id="exampleFormControlInput1" placeholder="Max">
+                </div>
+                <div class="form-group col-md-6 text-left">
+                  <label for="exampleFormControlInput1">Nachname</label>
+                  <input type="Text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Muster">
+              </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6 text-left">
+                  <label for="exampleFormControlInput1">Adresse</label>
+                  <input type="Text" name="weg" class="form-control" id="exampleFormControlInput1" placeholder="Musterweg 18">
+                </div>
+                <!-- PLZ wird zugewiesen auf mögliche Anzahl 1000-9999, da PLZ in der CH nur vierstellig.-->
+                <div class="form-group col-md-3 text-left">
+                  <label for="exampleFormControlInput1">PLZ</label>
+                  <input type="number" name="plz" class="form-control" min="1000" max="9999" id="exampleFormControlInput1" placeholder="z.B. 4222" required>
+              </div>
+                <div class="form-group col-md-3 text-left">
+                  <label for="exampleFormControlInput1">Ort</label>
+                  <input type="Text" name="ort" class="form-control" id="exampleFormControlInput1" placeholder="z.B. Basel">
+              </div>
+              </div>
+              <div class="form-group text-left">
+                <label for="email">Email Adresse</label>
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@beispiel.com" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Benötige Hilfe bei</label>
+                <select name="eintrag" class="form-control" id="exampleFormControlSelect1">
+                    <option>Einkaufen</option>
+                    <option>Rasen mähen</option>
+                    <option>Kinder betreuen</option>
+                    <option>PC einrichten</option>
+                    <option>Besorgungen</option>
+                    <option>Fahrdienst</option>
+                    <option>Essen abholen</option>
+                    <option>Hund spazieren</option>
+                    <option>Post abholen</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Bis wann sollte es erledigt sein?</label>
+                <select name="tag" class="form-control" id="exampleFormControlSelect1">
+                    <option>heute</option>
+                    <option>morgen</option>
+                    <option>übermorgen</option>
+                    <option>in einer Woche</option>
+                    <option>in zwei Wochen</option>
+                    </select>
+                  </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Kommentar an Helfer/in </label>
+                <textarea class="form-control" name="kommentar" id="exampleFormControlTextarea1" placeholder="Hier können Sie eine Nachricht hinterlassen." rows="3"></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary" >Submit</button> </div>
+          </form>
+          
+          
+            
+
+        </div>
+          
+      </div>
+  </section>
+</body>
+<!-- Footer -->
+<footer class="page-footer font-small teal pt-4 fixed-bottom" style="position: relative;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white bg-dark"><a>© 2020 Copyright: TMR </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+
+</html>
+
+  
